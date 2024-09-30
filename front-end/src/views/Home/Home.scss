@@ -1,0 +1,50 @@
+@import "../../base.scss";
+.page_home {
+  .comp_top_nav{
+    position: fixed;
+    z-index: 100;
+  }
+  .layout {
+    padding: 19px 24px 0 24px;
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+  }
+
+  .comp_location {
+    gap: 8px;
+    box-shadow: 0px 0px 7px 0px #A5A8AB;
+    width: 100%;
+    border-radius: 10px;
+    opacity: 0px;
+    padding: 8px;
+    &:hover{
+      border: 1px solid $pink;
+      cursor: pointer;
+      filter: brightness(1.1);
+    }
+
+    img{
+      border-radius: 8px;
+      border: 1px solid #C7C7C7;
+    }
+  }
+
+  .distance {
+    font-size: 14px;
+    color: #838383;
+    padding-left: 8px;
+  }
+
+  .location_title {
+    color: linear-gradient(0deg, #292A2B, #292A2B),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+    padding-top: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+  }
+}
