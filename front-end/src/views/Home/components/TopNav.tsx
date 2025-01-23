@@ -2,9 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function TopNav(props: any): React.ReactElement {
+    const { photo_list, render_photo, eventID } = props;
     const navigate = useNavigate();
+    // const history = useHistory();
     const handleLogoBtn = () => {
-        navigate("/" );
+        navigate("/" + eventID);
     };
     return (
         <>

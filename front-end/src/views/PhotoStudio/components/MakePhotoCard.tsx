@@ -10,16 +10,16 @@ interface MakePhotoCardProps {
     theme: "blue" | "pink" | "yellow" | "white";
     change_photo: (_idx: number, _newSrc: string) => void;
     photo_render_ref: any;
-    eventID: string | undefined;
+    background_image_src: string | undefined;
 }
 
 export default function MakePhotoCard(eventInfo: MakePhotoCardProps): React.ReactElement {
-    const { title, date, photo_list, logo_list, theme, change_photo, photo_render_ref, eventID } = eventInfo;
+    const { title, date, photo_list, logo_list, theme, change_photo, photo_render_ref, background_image_src } = eventInfo;
     const [running_cam_idx, setRunningCamIdx] = useState<number>(-1);
     const [is_facingMode_user, setIsFacingmodeUser] = useState<boolean>(false);
     const webcamRef: any = useRef<any>(null);
 
-    const turn_off_cam = () => { setRunningCamIdx(-1);  }
+    const turn_off_cam = () => { setRunningCamIdx(-1); }
 
     const handle_back_btn = () => {
         turn_off_cam();
@@ -49,6 +49,9 @@ export default function MakePhotoCard(eventInfo: MakePhotoCardProps): React.Reac
                     <div className="wrap_title_date">
                         <p className="title">{title}</p>
                         <p className="date">{date}</p>
+                    </div>
+                    <div className='background_image'>
+                        <img className='background_img' src={background_image_src} />
                     </div>
                     <div className="container_pictures">
                         {photo_list.map((photo_src, idx) =>
@@ -103,9 +106,6 @@ export default function MakePhotoCard(eventInfo: MakePhotoCardProps): React.Reac
                         }
                     </div >
                     <div className="comp_logo_container">
-                        <div className="container_logo">
-                            <img alt="logo image" src={"/LOGO_Happics.svg"} />
-                        </div>
                         {logo_list && logo_list.map((logo_src, key) =>
                             <div key={key} className="container_logo">
                                 <img alt="logo image" src={logo_src} />
@@ -114,7 +114,7 @@ export default function MakePhotoCard(eventInfo: MakePhotoCardProps): React.Reac
                         }
                     </div>
                     <div className="container_QR">
-                        <QRCode value={`${process.env.REACT_APP_WEB_HREF}/${eventID}`} size={3*16} className={"qrcode"}/>
+                        <QRCode value={`${process.env.REACT_APP_WEB_HREF}/tourfourcut`} size={3 * 16} className={"qrcode"} />
                     </div>
                 </div>
             </div>
